@@ -1,0 +1,219 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative; /* Garantir que o fundo da chuva fique atrás */
+}
+
+/* Cabeçalho */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Colocar o cabeçalho acima da chuva */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+}
+
+header .highlight {
+    color: #ff6f61; /* Cor moderna e vibrante */
+}
+
+nav {
+    background: #444;
+    padding: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+/* Estilo principal */
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Colocar o conteúdo principal acima da chuva */
+}
+
+#members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Ajustes para os cards dos membros */
+.member {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 300px; /* Largura ajustada para a responsividade */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Centraliza o texto dentro do card */
+    border: 4px solid transparent; /* Borda inicial transparente */
+}
+
+/* Adicionando detalhes coloridos nas bordas */
+.member:nth-child(1) {
+    border-color: #007bff; /* Azul */
+}
+
+.member:nth-child(2) {
+    border-color: #dc3545; /* Vermelho */
+}
+
+.member:nth-child(3) {
+    border-color: #28a745; /* Verde */
+}
+
+.member:nth-child(4) {
+    border-color: #ffc107; /* Amarelo */
+}
+
+.member:nth-child(5) {
+    border-color: #e83e8c; /* Rosa */
+}
+.member:nth-child(6) {
+    border-color: #007bff; /* Azul */
+}
+.member:nth-child(7) {
+    border-color: #dc3545; /* Vermelho */
+}
+member:nth-child(8) {
+    border-color: #28a745; /* Verde */
+}
+.member:nth-child(9) {
+    border-color: #ffc107; /* Amarelo */
+}
+
+/* Detalhes nas imagens dos membros */
+.member img {
+    width: 100%; /* A imagem ocupará toda a largura do card */
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd; /* Adiciona uma borda sutil às imagens */
+}
+
+/* Detalhes nas fontes dos membros */
+.member h2 {
+    font-size: 1.6rem; /* Tamanho do título ajustado */
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.member p {
+    font-size: 1rem; /* Tamanho da fonte do parágrafo */
+    color: #555;
+    max-height: 6em; /* Permite mais espaço para o texto */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+    margin: 0;
+    transition: color 0.3s;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: #333; /* Muda a cor da borda ao passar o mouse */
+}
+
+.member:hover img {
+    transform: scale(1.05);
+}
+
+/* Efeito de chuva */
+#rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite clicar nos elementos acima */
+    overflow: hidden;
+    z-index: 0; /* Fica atrás de todo o conteúdo */
+}
+
+.drop {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0.5;
+    animation: fall linear;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100vh);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Rodapé */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2rem;
+    z-index: 1; /* Colocar o rodapé acima da chuva */
+}
